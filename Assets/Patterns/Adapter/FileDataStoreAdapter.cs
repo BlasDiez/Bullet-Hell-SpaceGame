@@ -1,7 +1,7 @@
 using System.IO;
 using UnityEngine;
 
-public class FileDataStoreAdapter : DataStore
+public class FileDataStoreAdapter : IDataStore
 {
     
     public void SetData<T>(T data, string name)

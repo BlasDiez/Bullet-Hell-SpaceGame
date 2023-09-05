@@ -1,18 +1,24 @@
 using System;
+using Ships;
 using UnityEngine;
+
 
 public class Ship : MonoBehaviour
 {
-
     [SerializeField] private float _speed;
-    [SerializeField] private Joystick _joystick;
+    private IInput _input;
     private Transform _myTransform;
-    private Camera _camera;
+    private ICheckLimits _checkLimits;
 
     private void Awake()
     {
-        _camera = Camera.main;
         _myTransform = transform;
+    }
+    
+    public void Configure(IInput input, ICheckLimits checkLimits)
+    {
+        _input = input;
+        _checkLimits = checkLimits;
     }
 
     void Update()
@@ -24,23 +30,11 @@ public class Ship : MonoBehaviour
     private void Move(Vector2 direction)
     {
         _myTransform.Translate(direction * (_speed * Time.deltaTime));
-        ClampFinalPosition();
-    }
-
-    private void ClampFinalPosition()
-    {
-        var viewportPoint = _camera.WorldToViewportPoint(_myTransform.position);
-        viewportPoint.x = Math.Clamp(viewportPoint.x, 0.03f, 0.97f);
-        viewportPoint.y = Math.Clamp(viewportPoint.y, 0.03f, 0.97f);
-        _myTransform.position = _camera.ViewportToWorldPoint(viewportPoint);
+        _checkLimits.ClampFinalPosition();
     }
 
     private Vector2 GetDirection()
     {
-        
-        return new Vector2(_joystick.Horizontal, _joystick.Vertical);
-        var horizontalDir = Input.GetAxis("Horizontal");
-        var verticalDir = Input.GetAxis("Vertical");
-        return new Vector2(horizontalDir, verticalDir);
+        return _input.GetDirection();
     }
 }

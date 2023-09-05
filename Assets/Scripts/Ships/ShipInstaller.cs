@@ -1,0 +1,39 @@
+using Ships;
+using UnityEngine;
+
+public class ShipInstaller : MonoBehaviour
+{
+    [SerializeField] private bool _useAI;
+    [SerializeField] private bool _useJoystick;
+    [SerializeField] private Joystick _joystick;
+    [SerializeField] private Ship _ship;
+    
+    private void Awake()
+    {
+        _ship.Configure(GetInput(), GetCheckLimitsStrategy());
+    }
+
+    private ICheckLimits GetCheckLimitsStrategy()
+    {
+
+        if (_useAI)
+        {
+            return new InitialPositionCheckLimits(_ship.transform, 10f);
+        }
+        return new ViewportCheckLimits(_ship.transform, Camera.main);
+    }
+
+    private IInput GetInput()
+    {
+        if (_useAI)
+        {
+            return new AIInputAdapter(_ship);
+        }
+        if (_useJoystick)
+        {
+            return new JoystickInputAdapter(_joystick);
+        }
+        Destroy(_joystick.gameObject);
+        return new UnityInputAdapter();
+    }
+}
