@@ -1,4 +1,3 @@
-using System;
 using Patterns.Adapter;
 using UnityEngine;
 
@@ -22,8 +21,8 @@ namespace Patterns.Strategy
         public void Load()
         {
             var data = _dataStore.GetData<Data>("data2");
-            Debug.Log(data.Dato1);
-            Debug.Log(data.Dato2);
+            Debug.Log(data.dato1);
+            Debug.Log(data.dato2);
         }
     }
 }

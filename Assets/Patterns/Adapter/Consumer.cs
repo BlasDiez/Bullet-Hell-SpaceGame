@@ -16,8 +16,8 @@ namespace Patterns.Adapter
         private void Start()
         {
             var data = _fileDataStoreAdapter.GetData<Data>("data1");
-            Debug.Log(data.Dato1);
-            Debug.Log(data.Dato2);
+            Debug.Log(data.dato1);
+            Debug.Log(data.dato2);
         }
     }
 }

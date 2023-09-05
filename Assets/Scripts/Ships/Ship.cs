@@ -1,11 +1,9 @@
-using System;
 using Ships;
 using UnityEngine;
 
-
 public class Ship : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    [SerializeField] private float speed;
     private IInput _input;
     private Transform _myTransform;
     private ICheckLimits _checkLimits;
@@ -29,7 +27,7 @@ public class Ship : MonoBehaviour
 
     private void Move(Vector2 direction)
     {
-        _myTransform.Translate(direction * (_speed * Time.deltaTime));
+        _myTransform.Translate(direction * (speed * Time.deltaTime));
         _checkLimits.ClampFinalPosition();
     }
 
