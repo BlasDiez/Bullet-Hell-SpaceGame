@@ -5,7 +5,6 @@ public class AIInputAdapter : IInput
 {
     private readonly Ship _ship;
     private int _currentDirectionX;
-    private Camera _camera;
 
     public AIInputAdapter(Ship ship)
     {
@@ -15,13 +14,15 @@ public class AIInputAdapter : IInput
 
     public Vector2 GetDirection()
     {
-        if (!_camera)
+        if (Camera.main != null)
         {
-            var viewportPoint = _camera.WorldToViewportPoint(_ship.transform.position);
+            var viewportPoint = Camera.main.WorldToViewportPoint(_ship.transform.position);
             if (viewportPoint.x < 0.05f)
             {
                 _currentDirectionX = 1;
-            }else if (viewportPoint.x > 0.95f)
+                
+            }
+            else if (viewportPoint.x > 0.95f)
             {
                 _currentDirectionX = -1;
             }

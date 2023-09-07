@@ -15,7 +15,6 @@ public class ShipInstaller : MonoBehaviour
 
     private ICheckLimits GetCheckLimitsStrategy()
     {
-
         if (useAI)
         {
             return new InitialPositionCheckLimits(ship.transform, 10f);

@@ -22,6 +22,8 @@ public class Ship : MonoBehaviour
     void Update()
     {
         var direction = GetDirection();
+        print(Camera.main.WorldToViewportPoint(transform.position));
+
         Move(direction);
     }
 
