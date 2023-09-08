@@ -8,5 +8,10 @@ namespace Ships
         {
             return new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         }
+
+        public bool IsFireActionPressed()
+        {
+            return Input.GetButton("Fire1");
+        }
     }
 }

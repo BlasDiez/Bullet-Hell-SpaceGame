@@ -183,6 +183,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &364445438 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3714473745644490200, guid: 4efb9519d996e4d4aac1f7c6d8f08e96, type: 3}
+  m_PrefabInstance: {fileID: 8933970127848525210}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f249f9988c8df418b87332f5c57c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,10 +307,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc497da196043db90494b116afd9ebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useAI: 0
+  useAI: 1
   useJoystick: 0
-  joystick: {fileID: 0}
-  ship: {fileID: 0}
+  joystick: {fileID: 275235328}
+  ship: {fileID: 364445438}
 --- !u!4 &596063346
 Transform:
   m_ObjectHideFlags: 0
@@ -635,6 +646,10 @@ PrefabInstance:
     - target: {fileID: 3084375020336535013, guid: 4efb9519d996e4d4aac1f7c6d8f08e96, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3714473745644490200, guid: 4efb9519d996e4d4aac1f7c6d8f08e96, type: 3}
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3714473745644490200, guid: 4efb9519d996e4d4aac1f7c6d8f08e96, type: 3}
       propertyPath: _joystick

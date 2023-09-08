@@ -6,6 +6,7 @@ public class ShipInstaller : MonoBehaviour
     [SerializeField] private bool useAI;
     [SerializeField] private bool useJoystick;
     [SerializeField] private Joystick joystick;
+    [SerializeField] private JoyButton joyButton;
     [SerializeField] private Ship ship;
     
     private void Awake()
@@ -30,9 +31,10 @@ public class ShipInstaller : MonoBehaviour
         }
         if (useJoystick)
         {
-            return new JoystickInputAdapter(joystick);
+            return new JoystickInputAdapter(joystick, joyButton);
         }
         Destroy(joystick.gameObject);
+        Destroy(joyButton.gameObject);
         return new UnityInputAdapter();
     }
 }

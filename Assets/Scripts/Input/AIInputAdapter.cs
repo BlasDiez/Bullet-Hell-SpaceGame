@@ -30,4 +30,9 @@ public class AIInputAdapter : IInput
 
         return new Vector2(_currentDirectionX, 0);
     }
+
+    public bool IsFireActionPressed()
+    {
+        return Random.Range(0, 100) < 20;
+    }
 }
