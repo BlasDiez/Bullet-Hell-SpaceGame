@@ -167,11 +167,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &137959503 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6164609920024147649, guid: 4efb9519d996e4d4aac1f7c6d8f08e96, type: 3}
-  m_PrefabInstance: {fileID: 8933970127848525210}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &275235327 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
@@ -313,7 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useAI: 0
-  useJoystick: 1
+  useJoystick: 0
   joystick: {fileID: 275235328}
   joyButton: {fileID: 728674171}
   ship: {fileID: 364445438}
@@ -719,6 +714,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 514350565712996667, guid: 4efb9519d996e4d4aac1f7c6d8f08e96, type: 3}
+      propertyPath: projectilePrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 514350565712996667, guid: 4efb9519d996e4d4aac1f7c6d8f08e96, type: 3}
+      propertyPath: projectilePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 271644535608666663, guid: 6433bb13f7ef6d249b561936751e249b, type: 3}
+    - target: {fileID: 514350565712996667, guid: 4efb9519d996e4d4aac1f7c6d8f08e96, type: 3}
+      propertyPath: projectilePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 271644535608666663, guid: da71b3dbea6b11e4ca25b56bc9e41365, type: 3}
     - target: {fileID: 1797254469202686342, guid: 4efb9519d996e4d4aac1f7c6d8f08e96, type: 3}
       propertyPath: m_Name
       value: Ship
@@ -767,17 +774,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3714473745644490200, guid: 4efb9519d996e4d4aac1f7c6d8f08e96, type: 3}
-      propertyPath: speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3714473745644490200, guid: 4efb9519d996e4d4aac1f7c6d8f08e96, type: 3}
-      propertyPath: _joystick
-      value: 
-      objectReference: {fileID: 275235328}
-    - target: {fileID: 3714473745644490200, guid: 4efb9519d996e4d4aac1f7c6d8f08e96, type: 3}
-      propertyPath: projectileSpawnPosition
-      value: 
-      objectReference: {fileID: 137959503}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4efb9519d996e4d4aac1f7c6d8f08e96, type: 3}

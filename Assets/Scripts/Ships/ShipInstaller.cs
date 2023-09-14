@@ -7,7 +7,7 @@ public class ShipInstaller : MonoBehaviour
     [SerializeField] private bool useJoystick;
     [SerializeField] private Joystick joystick;
     [SerializeField] private JoyButton joyButton;
-    [SerializeField] private Ship ship;
+    [SerializeField] private ShipMediator ship;
     
     private void Awake()
     {
