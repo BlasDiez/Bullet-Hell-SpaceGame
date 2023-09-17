@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using UnityEngine;
 
@@ -5,19 +6,27 @@ namespace Ships.Weapon
 {
     public class WeaponController : MonoBehaviour
     {
+        [SerializeField] private ProjectilesConfiguration projectilesConfiguration;
+        [SerializeField] private ProjectileId defaultProjectileId;
         [SerializeField] private float firerateInSeconds;
-        [SerializeField] private Projectile[] projectilePrefabs;
         [SerializeField] private Transform projectileSpawnPosition;
         
+        private ProjectileFactory _projectileFactory;
         private IShip _ship;
+        
         private string _activeProjectileId;
         private float _remainingSecondsToBeAbleToShoot;
 
-        
+        private void Awake()
+        {
+            var instance = Instantiate(projectilesConfiguration);
+            _projectileFactory = new ProjectileFactory(instance);
+        }
+
         public void Configure(IShip ship, ICheckLimits checkLimits)
         {
             _ship = ship;
-            _activeProjectileId = "Projectile1";
+            _activeProjectileId = defaultProjectileId.Value;
         }
 
         public void TryShoot()
@@ -32,9 +41,12 @@ namespace Ships.Weapon
         
         private void Shoot()
         {
-            var prefab = projectilePrefabs.First(projectile => projectile.Id.Equals(_activeProjectileId));
+            var projectile = _projectileFactory
+                .Create(_activeProjectileId, 
+                    projectileSpawnPosition.position, 
+                    projectileSpawnPosition.rotation);
+            
             _remainingSecondsToBeAbleToShoot = firerateInSeconds;
-            Instantiate(prefab, projectileSpawnPosition.position, projectileSpawnPosition.rotation);
         }
     }
     
